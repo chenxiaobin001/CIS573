@@ -9,11 +9,10 @@ public class LRUCacheRemoveTest {
 
 	private Cache cache;
 	private int initSize = 8;
-	private int maxSize;
+	
 	@Before
 	public void setUp() throws Exception {
 		//test LRUCache
-		maxSize = initSize;
 		cache = new LRUCache(initSize);
 	}
 	
@@ -28,26 +27,32 @@ public class LRUCacheRemoveTest {
 	}
 
 	@Test
-	public void testWithNullKeyAndNonEmptyEntries(){
-		// key = "test1", entries.length > 0 && < maxLength (8)
+	public void testWithExistingKeyAndOneEntry(){
+		// key = "test1", entries.length = 1
 		boolean expected = true;
 		String key = "test1";
 		cache.entries[0] = new CacheEntry("test1");
-		cache.entries[1] = new CacheEntry("test2");
 		boolean actual = cache.remove(key);
+		
 		assertEquals(expected, actual);
+		for (CacheEntry ce : cache.entries){
+			if (ce != null){
+				assertTrue(ce.getKey() != key);
+			}
+		}
 	}
 	
 	@Test
-	public void testWithNullKeyAndEntriesFullSize(){
+	public void testWithNonExistingKeyAndEntriesFullSize(){
 		// key = "nonExist", entries.length == maxLength (8)
-		int maxLength = maxSize;
+		int maxLength = cache.maxEntries;
 		String key = "nonExist";
 		boolean expected = false;
 		for (int i = 0; i < maxLength; i++){
 			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
 		}
 		boolean actual = cache.remove(key);
+		
 		assertEquals(expected, actual);
 	}
 }

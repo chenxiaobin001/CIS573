@@ -30,6 +30,12 @@ public class CacheEntryAccessTest {
 		int actualCount = cacheEntry.count;
 		assertTrue(actualCount >= 0);
 	}
+	
+	@Test
+	public void testNullKey(){
+		assertTrue(cacheEntryNullKey.getKey() != null);
+	}
+	
 	@Test
 	public void testAccess1Times(){
 		// test case (access times = 1, count = 1)

@@ -19,21 +19,6 @@ public class LRUCacheRemoveTest {
 	
 	//inputs: key, entries
 
-/*
-	@Test
-	public void testCacheInitValues() {
-		// test case : init, 0 access
-		int expectedHit = 0;
-		int actualHit = cache.hits;
-		int expectedMiss = 0;
-		int actualMiss = cache.misses;
-		int expectedCacheSize = initSize;
-		int actualCacheSize = cache.entries.length;
-		assertEquals(expectedHit, actualHit);
-		assertEquals(expectedMiss, actualMiss);
-		assertEquals(expectedCacheSize, actualCacheSize);
-	}
-*/	
 	@Test
 	public void testWithNullKeyAndEmptyEntries() {
 		// key = null, entries.length = 0

@@ -22,6 +22,8 @@ public class CacheEntryAccessTest {
 		
 	}
 
+	//inputs: key, access, count
+	
 	@Test
 	public void testNegtiveCountValue() {	
 		//test case: count < 0, 
@@ -34,6 +36,19 @@ public class CacheEntryAccessTest {
 	@Test
 	public void testNullKey(){
 		assertTrue(cacheEntryNullKey.getKey() != null);
+	}
+	
+	
+	@Test
+	public void testAccess0Times(){
+		// test case (access times = 0, count = 0)
+		
+		long actualTime[] = new long[10];
+		for (int i = 0; i < 10; i++)	actualTime[i] = -1;
+		int expectedCount = 0;
+		int actualCount = cacheEntry.count;
+		assertEquals(expectedCount, actualCount);
+		assertArrayEquals(actualTime, cacheEntry.getAccesses());
 	}
 	
 	@Test
@@ -51,8 +66,9 @@ public class CacheEntryAccessTest {
 		assertArrayEquals(actualTime, cacheEntry.getAccesses());
 	}
 	
+	
 	@Test
-	public void testAccessedLessThan11Times() {
+	public void testAccessedLessThan10Times() {
 		// test case (access times = 9, count = 9)
 		
 		long actualTime[] = new long[10];
@@ -69,8 +85,27 @@ public class CacheEntryAccessTest {
 		assertArrayEquals(actualTime, cacheEntry.getAccesses());
 	}
 	
+	
 	@Test
-	public void testAccessedMoreThan11Times(){
+	public void testAccessed10Times() {
+		// test case (access times = 10, count = 10)
+		
+		long actualTime[] = new long[10];
+		int len = 10;
+		for (int i = 0; i < 10; i++)	actualTime[i] = -1;
+		int expectedCount = len;
+		for (int i = 0; i < len; i++){
+			long accessTime = date.getTime();
+			actualTime[len - 1 - i] = accessTime; 
+			cacheEntry.access(accessTime);
+		}
+		int actualCount = cacheEntry.count;
+		assertEquals(expectedCount, actualCount);
+		assertArrayEquals(actualTime, cacheEntry.getAccesses());
+	}
+	
+	@Test
+	public void testAccessedMoreThan10Times(){
 		// test case (access times = 12, count = 12)
 		long actualTime[] = new long[10];
 		int len = 12;

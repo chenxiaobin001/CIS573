@@ -42,13 +42,15 @@ public class LFUCache extends Cache {
 		while (true) {
 			// reset the array
 			for (int i = 0; i < numAccesses.length; i++) numAccesses[i] = 0;
-
 			// update the array with the number of accesses within the window
 			for (int i = 0; i < entries.length; i++) {
 				if (entries[i] != null) {
 					long[] times = entries[i].getAccesses();
 					for (int j = 0; j < times.length; j++) {
-						if (now - times[j] < window) numAccesses[i]++;
+						if (now - times[j] < window){
+							numAccesses[i]++;
+	//						System.out.println(i + ":" + window + ":" + now + ":" + times[j]);
+						}
 					}
 				}
 			}
@@ -60,6 +62,7 @@ public class LFUCache extends Cache {
 				if (numAccesses[i] < min) {
 					min = numAccesses[i];
 					index = i;
+		//			System.out.println("index:" + index);
 				}
 			}
 			// see if we have a winner... if all values in numAccesses are zero,

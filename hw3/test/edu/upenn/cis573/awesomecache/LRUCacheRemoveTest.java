@@ -74,4 +74,17 @@ public class LRUCacheRemoveTest {
 		
 		assertEquals(expected, actual);
 	}
+	
+	@Test
+	public void testWithNonExistingKeyAndEntriesNonFullSize(){
+		// key = "nonExist", entries.length == 3
+		int maxLength = cache.maxEntries;
+		String key = "nonExist";
+		boolean expected = false;
+		for (int i = 0; i < 3; i++){
+			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
+		}
+		boolean actual = cache.remove(key);
+		assertEquals(expected, actual);
+	}
 }

@@ -34,8 +34,11 @@ public class LRUCacheGrowCacheTest {
 		//test case (MaxCacheEntrySize = 0) 
 		cache = new LRUCache(0);
 		int originalSize = cache.entries.length;
+		int originalMaxSize = cache.maxEntries;
 		cache.growCache();
 		int newSize = cache.entries.length;
+		int newMaxSize = cache.maxEntries;
+		assertTrue(newMaxSize > originalMaxSize);
 		assertTrue(newSize > originalSize);
 	}
 	
@@ -44,8 +47,11 @@ public class LRUCacheGrowCacheTest {
 		//test case (MaxCacheEntrySize = 8, CacheEntry num = 1)
 		cache.entries[0] = new CacheEntry("test1");
 		int originalSize = cache.entries.length;
+		int originalMaxSize = cache.maxEntries;
 		cache.growCache();
 		int newSize = cache.entries.length;
+		int newMaxSize = cache.maxEntries;
+		assertTrue(newMaxSize > originalMaxSize);
 		assertTrue(newSize > originalSize);
 	}
 	
@@ -56,8 +62,11 @@ public class LRUCacheGrowCacheTest {
 			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
 		}
 		int originalSize = cache.entries.length;
+		int originalMaxSize = cache.maxEntries;
 		cache.growCache();
 		int newSize = cache.entries.length;
+		int newMaxSize = cache.maxEntries;
+		assertTrue(newMaxSize > originalMaxSize);
 		assertTrue(newSize > originalSize);
 	}
 	
@@ -68,8 +77,11 @@ public class LRUCacheGrowCacheTest {
 			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
 		}
 		int originalSize = cache.entries.length;
+		int originalMaxSize = cache.maxEntries;
 		cache.growCache();
 		int newSize = cache.entries.length;
+		int newMaxSize = cache.maxEntries;
+		assertTrue(newMaxSize > originalMaxSize);
 		assertTrue(newSize > originalSize);
 	}
 }

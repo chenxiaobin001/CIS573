@@ -5,19 +5,19 @@ import static org.junit.Assert.*;
 import java.util.Date;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class CacheEntryAccessTest {
 	
 	private CacheEntry cacheEntry;
-	private CacheEntry cacheEntryNullKey;
 	private Date date;
 
 	@Before
 	public void setUp() throws Exception {
 		
 		cacheEntry = new CacheEntry("test");
-		cacheEntryNullKey = new CacheEntry(null);
 		date = new Date();
 		
 	}
@@ -33,9 +33,13 @@ public class CacheEntryAccessTest {
 		assertTrue(actualCount >= 0);
 	}
 	
+	@Rule public ExpectedException thrown= ExpectedException.none();
 	@Test
 	public void testNullKey(){
-		assertTrue(cacheEntryNullKey.getKey() != null);
+		// test case: null key as argument
+		thrown.expect( IllegalArgumentException.class );
+		cacheEntry = new CacheEntry(null);
+		assertTrue(cacheEntry.getKey() != null);
 	}
 	
 	

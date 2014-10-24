@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CacheGeneralGetTest {
+public class CacheGetTest {
 
 	private Cache cache;
 	private int initSize = 8;

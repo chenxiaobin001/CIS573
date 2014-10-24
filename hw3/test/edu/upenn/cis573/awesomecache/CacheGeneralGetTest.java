@@ -67,5 +67,27 @@ public class CacheGeneralGetTest {
 		assertEquals(expectedKey, actualKey);
 		
 	}
+	
+	@Test
+	public void testNonExitingKeyCacheEntryNonFullSize() {
+		// test case: key = "test", size = entries.length
+		String key = "test1";
+		int len = cache.entries.length;
+		for (int i = 0; i < len; i++){
+			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
+		}
+		
+		int oldHits = cache.hits;
+		boolean expected = true;
+		String expectedKey = key;
+		CacheResult cr = cache.get(key);
+		int newHits = cache.hits;
+		boolean actual = cr.isHit();
+		String actualKey = cr.getKey();
+		assertEquals(expected, actual);
+		assertTrue(newHits == (oldHits + 1));
+		assertEquals(expectedKey, actualKey);
+		
+	}
 
 }

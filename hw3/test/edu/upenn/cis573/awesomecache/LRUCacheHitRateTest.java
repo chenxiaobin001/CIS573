@@ -3,7 +3,9 @@ package edu.upenn.cis573.awesomecache;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class LRUCacheHitRateTest {
 
@@ -16,6 +18,7 @@ public class LRUCacheHitRateTest {
 		
 	}
 	
+	@Rule public ExpectedException thrown= ExpectedException.none();
 	//input hits, misses
 	@Test
 	public void testZeroHitZeroMiss() {
@@ -30,20 +33,30 @@ public class LRUCacheHitRateTest {
 	@Test
 	public void testNegativeHitsPositiveMisses() {
 		// test case (hits = -1, misses = 1)
+		thrown.expect( IllegalStateException.class );
 		cache.hits = -1;
 		cache.misses = 1;
 		double hitRate = cache.hitRate();
-		assertTrue(hitRate >= 0.0 && hitRate <= 1.0);
+		
+	}
+	
+	@Test
+	public void testMAXHitsMAXMisses() {
+		// test case (hits = -1, misses = 1)
+		thrown.expect( IllegalStateException.class );
+		cache.hits = Integer.MAX_VALUE;
+		cache.misses = Integer.MAX_VALUE;
+		double hitRate = cache.hitRate();
 		
 	}
 	
 	@Test
 	public void testPositiveHitsNegativeMisses() {
 		// test case (hits = 1, misses = -1)
+		thrown.expect( IllegalStateException.class );
 		cache.hits = 1;
 		cache.misses = -1;
 		double hitRate = cache.hitRate();
-		assertTrue(hitRate >= 0.0 && hitRate <= 1.0);
 		
 	}
 	
@@ -53,7 +66,7 @@ public class LRUCacheHitRateTest {
 		cache.hits = 3;
 		cache.misses = 5;
 		double hitRate = cache.hitRate();
-		assertTrue(Double.compare(hitRate, 3.0/8) == 0);
+		assertTrue(Double.compare(hitRate, 3.0/8 * 100) == 0);
 		assertTrue(hitRate >= 0.0 && hitRate <= 100.0);
 	
 	}
@@ -64,10 +77,11 @@ public class LRUCacheHitRateTest {
 		cache.hits = 1;
 		cache.misses = 0;
 		double hitRate = cache.hitRate();
-		assertTrue(Double.compare(hitRate, 1.0) == 0);
+		assertTrue(Double.compare(hitRate, 100.0) == 0);
 		assertTrue(hitRate >= 0.0 && hitRate <= 100.0);
 
 	}
+	
 	
 	
 }

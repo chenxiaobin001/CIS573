@@ -11,9 +11,8 @@ public class LRUCacheGrowCacheTest {
 
 	private Cache cache;
 	private int initSize = 8;
-	private int negInitSize = -8;
 	
-	//inputs: initialSize, maxEntries, entries
+	//inputs: initialSize, entries
 	@Rule public ExpectedException thrown= ExpectedException.none();
 	
 	@Before
@@ -23,65 +22,58 @@ public class LRUCacheGrowCacheTest {
 	}
 	
 	@Test
-	public void testNegativeMaxSizeCacheEntry(){
-		//test case (MaxCacheEntrySize = -8) to see if exception is thrown
+	public void testNegativeInitialSizeEmptyCacheEntry(){
+		//test case (initialSize = -8) to see if exception is thrown
 		thrown.expect( IllegalArgumentException.class );
-		Cache cacheNegInit = new LRUCache(negInitSize);
+		cache = new LRUCache(-8);
+		cache.growCache();
 	}
 	
 	@Test
-	public void testZeroMaxSizeEmptyEntries() {
-		//test case (MaxCacheEntrySize = 0) 
+	public void testZeroInitialSizeEmptyEntries() {
+		//test case (InitialSize = 0) 
 		cache = new LRUCache(0);
+		int initSize = cache.initialSize;
 		int originalSize = cache.entries.length;
-		int originalMaxSize = cache.maxEntries;
 		cache.growCache();
 		int newSize = cache.entries.length;
-		int newMaxSize = cache.maxEntries;
-		assertTrue(newMaxSize > originalMaxSize);
-		assertTrue(newSize > originalSize);
+		assertTrue(newSize == originalSize + initSize);
 	}
 	
 	@Test
-	public void testPositiveMaxSizeOneCacheEntries(){
-		//test case (MaxCacheEntrySize = 8, CacheEntry num = 1)
+	public void testPositiveInitialSizeOneCacheEntries(){
+		//test case (InitialSize = 8, CacheEntry num = 1)
+		int initSize = cache.initialSize;
 		cache.entries[0] = new CacheEntry("test1");
 		int originalSize = cache.entries.length;
-		int originalMaxSize = cache.maxEntries;
 		cache.growCache();
 		int newSize = cache.entries.length;
-		int newMaxSize = cache.maxEntries;
-		assertTrue(newMaxSize > originalMaxSize);
-		assertTrue(newSize > originalSize);
+		assertTrue(newSize == originalSize + initSize);
 	}
 	
 	@Test
 	public void testPositiveMaxSizeMaxnumSubtractOneCacheEntries(){
 		//test case (MaxCacheEntrySize = 8, CacheEntry num = 7)
+		int initSize = cache.initialSize;
 		for (int i = 0; i < cache.entries.length - 1; i++){
 			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
 		}
 		int originalSize = cache.entries.length;
-		int originalMaxSize = cache.maxEntries;
 		cache.growCache();
 		int newSize = cache.entries.length;
-		int newMaxSize = cache.maxEntries;
-		assertTrue(newMaxSize > originalMaxSize);
-		assertTrue(newSize > originalSize);
+		assertTrue(newSize == originalSize + initSize);
 	}
 	
 	@Test
 	public void testPositiveMaxSizeMaxnumCacheEntries(){
 		//test case (MaxCacheEntrySize = 8, CacheEntry num = 8)
+		int initSize = cache.initialSize;
 		for (int i = 0; i < cache.entries.length; i++){
 			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
 		}
 		int originalSize = cache.entries.length;
-		int originalMaxSize = cache.maxEntries;
 		cache.growCache();
 		int newSize = cache.entries.length;
-		int newMaxSize = cache.maxEntries;
-		assertTrue(newMaxSize > originalMaxSize);
-		assertTrue(newSize > originalSize);
+		assertTrue(newSize == originalSize + initSize);
 	}
 }

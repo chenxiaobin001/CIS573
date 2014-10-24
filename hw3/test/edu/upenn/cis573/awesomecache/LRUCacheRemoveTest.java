@@ -20,7 +20,7 @@ public class LRUCacheRemoveTest {
 
 	@Test
 	public void testWithNullKeyAndEmptyEntries() {
-		// key = null, entries.length = 0
+		// key = null, entry num = 0
 		boolean expected = false;
 		boolean actual = cache.remove(null);
 		assertEquals(expected, actual);

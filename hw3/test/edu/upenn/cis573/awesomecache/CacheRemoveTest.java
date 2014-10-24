@@ -5,14 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LRUCacheRemoveTest {
+public class CacheRemoveTest {
 
 	private Cache cache;
 	private int initSize = 8;
 	
 	@Before
 	public void setUp() throws Exception {
-		//test LRUCache
+		//use LRUCache to test
 		cache = new LRUCache(initSize);
 	}
 	
@@ -78,7 +78,6 @@ public class LRUCacheRemoveTest {
 	@Test
 	public void testWithNonExistingKeyAndEntriesNonFullSize(){
 		// key = "nonExist", entries.length == 3
-		int maxLength = cache.maxEntries;
 		String key = "nonExist";
 		boolean expected = false;
 		for (int i = 0; i < 3; i++){

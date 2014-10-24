@@ -2,8 +2,6 @@ package edu.upenn.cis573.awesomecache;
 
 import static org.junit.Assert.*;
 
-import java.util.Date;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,12 +9,10 @@ public class LRUCacheReplaceTest {
 	
 	private LRUCache lru;
 	private int initSize = 8;
-	private Date date;
 	
 	@Before
 	public void setUp() throws Exception {
 		lru = new LRUCache(initSize);
-		date = new Date();
 	}
 
 	@Test

@@ -7,7 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class LRUCacheGrowCacheTest {
+public class CacheGrowCacheTest {
 
 	private Cache cache;
 	private int initSize = 8;
@@ -23,9 +23,9 @@ public class LRUCacheGrowCacheTest {
 	
 	@Test
 	public void testNegativeInitialSizeEmptyCacheEntry(){
-		//test case (initialSize = -8) to see if exception is thrown
-		thrown.expect( IllegalArgumentException.class );
-		cache = new LRUCache(-8);
+		//test case (initialSize = -10) to see if exception is thrown
+		cache.initialSize = -10;
+		thrown.expect( IllegalStateException.class );
 		cache.growCache();
 	}
 	
@@ -52,10 +52,26 @@ public class LRUCacheGrowCacheTest {
 	}
 	
 	@Test
-	public void testPositiveMaxSizeMaxnumSubtractOneCacheEntries(){
-		//test case (MaxCacheEntrySize = 8, CacheEntry num = 7)
+	public void testMAXINTInitialSizeSomeCacheEntries(){
+		//test case (InitialSize = INT_MAX, CacheEntry num = 7)
+		cache.initialSize = Integer.MAX_VALUE;
+		thrown.expect( IndexOutOfBoundsException.class );
+		
+		long initSize = (long)cache.initialSize;
+		for (int i = 0; i < 8; i++){
+			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
+		}
+		int originalSize = cache.entries.length;
+		cache.growCache();
+		long newSize = cache.entries.length;
+		assertTrue(newSize == originalSize + initSize);
+	}
+	
+	@Test
+	public void testPositiveInitialSizeFullSizeCacheEntries(){
+		//test case (InitialSize = 8, CacheEntry num = 8)
 		int initSize = cache.initialSize;
-		for (int i = 0; i < cache.entries.length - 1; i++){
+		for (int i = 0; i < cache.entries.length; i++){
 			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
 		}
 		int originalSize = cache.entries.length;
@@ -65,10 +81,10 @@ public class LRUCacheGrowCacheTest {
 	}
 	
 	@Test
-	public void testPositiveMaxSizeMaxnumCacheEntries(){
-		//test case (MaxCacheEntrySize = 8, CacheEntry num = 8)
+	public void testPositiveInitialSizeFullOffByOneCacheEntries(){
+		//test case (InitialSize = 8, CacheEntry num = 7)
 		int initSize = cache.initialSize;
-		for (int i = 0; i < cache.entries.length; i++){
+		for (int i = 0; i < cache.entries.length - 1; i++){
 			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
 		}
 		int originalSize = cache.entries.length;

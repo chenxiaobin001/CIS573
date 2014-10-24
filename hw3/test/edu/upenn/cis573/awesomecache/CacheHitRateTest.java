@@ -7,13 +7,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class LRUCacheHitRateTest {
+public class CacheHitRateTest {
 
 	private Cache cache; 
 	private int initSize = 8;
 	@Before
 	public void setUp() throws Exception {
-		//test LRUCache
+		//use LRUCache to test
 		cache = new LRUCache(initSize);
 		
 	}
@@ -47,7 +47,8 @@ public class LRUCacheHitRateTest {
 		cache.hits = Integer.MAX_VALUE;
 		cache.misses = Integer.MAX_VALUE;
 		double hitRate = cache.hitRate();
-		
+		assertTrue(hitRate >= 0.0 && hitRate <= 1.0);
+		assertTrue(Double.compare(50.0, hitRate) == 0);
 	}
 	
 	@Test

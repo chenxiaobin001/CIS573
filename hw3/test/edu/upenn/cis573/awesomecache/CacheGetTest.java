@@ -39,7 +39,7 @@ public class CacheGetTest {
 	
 
 	@Test
-	public void testExistingKeyPositiveHitsMissesOneCacheEntryOneHistory() {
+	public void testExistingKeyZeroHitsMissesOneCacheEntryOneHistory() {
 		// Existing key, hits = 0, misses = 0, one history entry, one cache entry.
 		String key = "test";
 		CacheResult expected = new CacheResult(true, key);
@@ -64,6 +64,38 @@ public class CacheGetTest {
 		assertTrue(expected.isHit() == actual.isHit());
 		assertTrue(expected.getKey() == actual.getKey());
 	}
+	
+	
+	@Test
+	public void testExistingKeyPositiveHitsMissesFullCacheEntryOneHistory() {
+		// Existing key, hits = 1, misses = 1, one history entry, full cache entry.
+		String key = "test0";
+		CacheResult expected = new CacheResult(true, key);
+		int len = cache.entries.length;
+		for (int i = 0; i < len; i++){
+			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
+		}
+		cache.history[0] = "test";
+		cache.hits = 1;
+		cache.misses = 1;
+		int expectedHits = cache.hits + 1;
+		int expectedMisses = cache.misses;
+		long preAccessTime = System.currentTimeMillis();
+		CacheResult actual = cache.get(key);
+		long postAccessTime = System.currentTimeMillis();
+		int actualHits = cache.hits;
+		int actualMisses = cache.misses;
+		long actualAccessTime = cache.entries[0].accesses[0];
+		String actualHistory = cache.history[1];
+		
+		assertEquals(key, actualHistory);
+		assertTrue(actualAccessTime <= postAccessTime && actualAccessTime >= preAccessTime);
+		assertEquals(expectedHits, actualHits);
+		assertEquals(expectedMisses, actualMisses);
+		assertTrue(expected.isHit() == actual.isHit());
+		assertTrue(expected.getKey() == actual.getKey());
+	}
+	
 	
 	@Test
 	public void testExitingKeyPositiveHitsMissesSomeCacheEntriesSomeHistory() {
@@ -277,10 +309,7 @@ public class CacheGetTest {
 	public void testExitingKeyCacheEntryFullSize() {
 		// test case: key = "test", size = entries.length
 		String key = "test1";
-		int len = cache.entries.length;
-		for (int i = 0; i < len; i++){
-			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
-		}
+		
 		
 		int oldHits = cache.hits;
 		boolean expected = true;
@@ -295,26 +324,6 @@ public class CacheGetTest {
 		
 	}
 	
-	@Test
-	public void testNonExitingKeyCacheEntryNonFullSize() {
-		// test case: key = "test", size = entries.length
-		String key = "test1";
-		int len = cache.entries.length;
-		for (int i = 0; i < len; i++){
-			cache.entries[i] = new CacheEntry("test" + Integer.toString(i));
-		}
-		
-		int oldHits = cache.hits;
-		boolean expected = true;
-		String expectedKey = key;
-		CacheResult cr = cache.get(key);
-		int newHits = cache.hits;
-		boolean actual = cr.isHit();
-		String actualKey = cr.getKey();
-		assertEquals(expected, actual);
-		assertTrue(newHits == (oldHits + 1));
-		assertEquals(expectedKey, actualKey);
-		
-	}
+
 
 }

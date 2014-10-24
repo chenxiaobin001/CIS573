@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LRUCacheMostPopularKeyTest {
+public class CacheMostPopularKeyTest {
 
 	private Cache cache;
 	private int initSize = 8;

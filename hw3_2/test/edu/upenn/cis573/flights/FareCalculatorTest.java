@@ -123,7 +123,7 @@ public class FareCalculatorTest {
 		double result = fixture.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 
 		// add additional test code here
-		assertEquals(0.9, result, 0.1);
+		assertEquals(-1, result, 0.1);
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class FareCalculatorTest {
 		double result = fixture.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 
 		// add additional test code here
-		assertEquals(1.0, result, 0.1);
+		assertEquals(-1, result, 0.1);
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class FareCalculatorTest {
 		double result = fixture.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 
 		// add additional test code here
-		assertEquals(701.0, result, 0.1);
+		assertEquals(-1, result, 0.1);
 	}
 
 	/**
@@ -192,7 +192,7 @@ public class FareCalculatorTest {
 		double result = fixture.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 
 		// add additional test code here
-		assertEquals(301.9, result, 0.1);
+		assertEquals(-1, result, 0.1);
 	}
 
 	/**
@@ -215,7 +215,7 @@ public class FareCalculatorTest {
 		double result = fixture.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 
 		// add additional test code here
-		assertEquals(701.9, result, 0.1);
+		assertEquals(-1, result, 0.1);
 	}
 
 	/**
@@ -238,7 +238,7 @@ public class FareCalculatorTest {
 		double result = fixture.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 
 		// add additional test code here
-		assertEquals(301.0, result, 0.1);
+		assertEquals(-1, result, 0.1);
 	}
 
 	
@@ -255,7 +255,7 @@ public class FareCalculatorTest {
 		double result = fixture.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 
 		// add additional test code here
-		assertEquals(727.7, result, 0.1);
+		assertEquals(-1, result, 0.1);
 	}
 	
 	

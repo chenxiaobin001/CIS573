@@ -360,4 +360,20 @@ public class FareCalculatorTest {
 		
 	}
 	
+	// to kill mutant ROR_15
+	@Test
+	public void testTwoSegmentsDiffEquals500() {
+		price1 = 200;
+		price2 = 700;
+		// if 9 days from now, there should be no further adjustments
+		departureTime = System.currentTimeMillis() + ONE_DAY * 9;
+		
+		// more expensive reduced by 15%
+		double expected = price1 + 0.9*price2;
+
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		
+		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
+	}
+	
 }

@@ -268,7 +268,7 @@ public class FareCalculatorTest {
 		departureTime = System.currentTimeMillis() + ONE_DAY * 9;
 		
 		// more expensive reduced by 10%
-		double expected = price1 + 9*price2;
+		double expected = price1 + 0.9*price2;
 
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		
@@ -289,5 +289,17 @@ public class FareCalculatorTest {
 		assertEquals("Test failed for two segments, departure more than 14 days from now.", expected, actual, delta);
 	}
 	
-	
+	public void testTwoSegmentsDepartureLessThan3DaysFromNowIsFreqFlierV1() {
+		price1 = 300;
+		price2 = 200;
+		departureTime = System.currentTimeMillis() + ONE_DAY * 1;
+		isFreqFlier = true;
+		
+		// 10% discount on price1, then $100 surcharge
+		double expected = (0.9*price1+price2) + 200;
+
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		
+		assertEquals("Test failed for two segments, departure less than 3 days from now, is frequent flier.", expected, actual, delta);
+	}
 }

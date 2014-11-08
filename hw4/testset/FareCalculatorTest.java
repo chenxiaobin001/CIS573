@@ -275,6 +275,19 @@ public class FareCalculatorTest {
 		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
 	}
 	
+	@Test
+	public void testTwoSegmentsDepartureMoreThan14DaysFromNowVeryLongTime() {
+		price1 = 300;
+		price2 = 200;
+		departureTime = System.currentTimeMillis() * 2;
+		
+		// 10% discount on price1, then 20% discount 
+		double expected = 0.8*(0.9*price1+price2);
+
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		
+		assertEquals("Test failed for two segments, departure more than 14 days from now.", expected, actual, delta);
+	}
 	
 	
 }

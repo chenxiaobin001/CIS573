@@ -275,6 +275,7 @@ public class FareCalculatorTest {
 		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
 	}
 	
+	//to kill mutant AORB_43
 	@Test
 	public void testTwoSegmentsDepartureMoreThan14DaysFromNowVeryLongTime() {
 		price1 = 300;
@@ -289,6 +290,8 @@ public class FareCalculatorTest {
 		assertEquals("Test failed for two segments, departure more than 14 days from now.", expected, actual, delta);
 	}
 	
+	
+	// to kill mutant AORB_62, AORB_63, AORB_65
 	@Test
 	public void testTwoSegmentsDepartureLessThan3DaysFromNowIsFreqFlierV1() {
 		price1 = 300;
@@ -303,4 +306,58 @@ public class FareCalculatorTest {
 		
 		assertEquals("Test failed for two segments, departure less than 3 days from now, is frequent flier.", expected, actual, delta);
 	}
+	
+	
+	// to kill mutant COR_1
+	@Test
+	public void testInvalidPrice1V1() {
+		int price1 = -20;
+		
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		double expected = -1;
+		
+		assertEquals("Test failed for invalid price1.", expected, actual, delta);
+		
+	}
+	
+	// to kill mutant COR_2
+	@Test
+	public void testInvalidPrice1Price2() {
+		int price1 = -20;
+		int price2 = -10;
+		
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		double expected = -1;
+		
+		assertEquals("Test failed for invalid price1.", expected, actual, delta);
+		
+	}
+	
+	
+	// to kill mutant COR_4
+	@Test
+	public void testInvalidPrice1AndDepartureTime() {
+		int price1 = -20;
+		departureTime = -10;
+		
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		double expected = -1;
+		
+		assertEquals("Test failed for invalid price1.", expected, actual, delta);
+		
+	}
+	
+	// to kill mutant COR_6
+	@Test
+	public void testInvalidPrice1AndDuration() {
+		int price1 = -20;
+		duration = -10;
+		
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		double expected = -1;
+		
+		assertEquals("Test failed for invalid price1.", expected, actual, delta);
+		
+	}
+	
 }

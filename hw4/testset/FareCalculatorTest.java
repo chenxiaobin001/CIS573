@@ -259,6 +259,22 @@ public class FareCalculatorTest {
 		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
 	}
 	
+	// to kill AORB_4 
+	@Test
+	public void testTwoSegmentsSumMoreThan500() {
+		price1 = 200;
+		price2 = 400;
+		// if 9 days from now, there should be no further adjustments
+		departureTime = System.currentTimeMillis() + ONE_DAY * 9;
+		
+		// more expensive reduced by 10%
+		double expected = price1 + 9*price2;
+
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		
+		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
+	}
+	
 	
 	
 }

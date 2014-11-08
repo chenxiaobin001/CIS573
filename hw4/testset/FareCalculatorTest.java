@@ -289,6 +289,7 @@ public class FareCalculatorTest {
 		assertEquals("Test failed for two segments, departure more than 14 days from now.", expected, actual, delta);
 	}
 	
+	@Test
 	public void testTwoSegmentsDepartureLessThan3DaysFromNowIsFreqFlierV1() {
 		price1 = 300;
 		price2 = 200;

@@ -376,4 +376,19 @@ public class FareCalculatorTest {
 		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
 	}
 	
+	// to kill mutant ROR_22
+	@Test
+	public void testOneSegmentDurationEqualsTo8() {
+		price1 = 200;
+		price2 = 0;
+		duration = 8;
+		
+		// 10% discount
+		double expected = price1;
+
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		
+		assertEquals("Test failed for one segment only (price1), duration more than 8.", expected, actual, delta);
+	}
+	
 }

@@ -1,0 +1,164 @@
+AORB_1:16:double_calculateFare(double,double,boolean,long,int):max - min => max * min
+AORB_2:16:double_calculateFare(double,double,boolean,long,int):max - min => max / min
+AORB_3:16:double_calculateFare(double,double,boolean,long,int):max - min => max % min
+AORB_4:16:double_calculateFare(double,double,boolean,long,int):max - min => max + min
+AORB_5:17:double_calculateFare(double,double,boolean,long,int):max * .85 => max / .85
+AORB_6:17:double_calculateFare(double,double,boolean,long,int):max * .85 => max % .85
+AORB_7:17:double_calculateFare(double,double,boolean,long,int):max * .85 => max + .85
+AORB_8:17:double_calculateFare(double,double,boolean,long,int):max * .85 => max - .85
+AORB_9:17:double_calculateFare(double,double,boolean,long,int):max * .85 + min => max * .85 * min
+AORB_10:17:double_calculateFare(double,double,boolean,long,int):max * .85 + min => max * .85 / min
+AORB_11:17:double_calculateFare(double,double,boolean,long,int):max * .85 + min => max * .85 % min
+AORB_12:17:double_calculateFare(double,double,boolean,long,int):max * .85 + min => max * .85 - min
+AORB_13:19:double_calculateFare(double,double,boolean,long,int):max * .9 => max / .9
+AORB_14:19:double_calculateFare(double,double,boolean,long,int):max * .9 => max % .9
+AORB_15:19:double_calculateFare(double,double,boolean,long,int):max * .9 => max + .9
+AORB_16:19:double_calculateFare(double,double,boolean,long,int):max * .9 => max - .9
+AORB_17:19:double_calculateFare(double,double,boolean,long,int):max * .9 + min => max * .9 * min
+AORB_18:19:double_calculateFare(double,double,boolean,long,int):max * .9 + min => max * .9 / min
+AORB_19:19:double_calculateFare(double,double,boolean,long,int):max * .9 + min => max * .9 % min
+AORB_20:19:double_calculateFare(double,double,boolean,long,int):max * .9 + min => max * .9 - min
+AORB_21:22:double_calculateFare(double,double,boolean,long,int):price1 + price2 => price1 * price2
+AORB_22:22:double_calculateFare(double,double,boolean,long,int):price1 + price2 => price1 / price2
+AORB_23:22:double_calculateFare(double,double,boolean,long,int):price1 + price2 => price1 % price2
+AORB_24:22:double_calculateFare(double,double,boolean,long,int):price1 + price2 => price1 - price2
+AORB_25:24:double_calculateFare(double,double,boolean,long,int):price * 0.9 => price / 0.9
+AORB_26:24:double_calculateFare(double,double,boolean,long,int):price * 0.9 => price % 0.9
+AORB_27:24:double_calculateFare(double,double,boolean,long,int):price * 0.9 => price + 0.9
+AORB_28:24:double_calculateFare(double,double,boolean,long,int):price * 0.9 => price - 0.9
+AORB_29:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 => 1000 / 60
+AORB_30:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 => 1000 % 60
+AORB_31:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 => 1000 + 60
+AORB_32:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 => 1000 - 60
+AORB_33:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 * 60 => 1000 * 60 / 60
+AORB_34:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 * 60 => 1000 * 60 % 60
+AORB_35:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 * 60 => 1000 * 60 + 60
+AORB_36:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 * 60 => 1000 * 60 - 60
+AORB_37:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 * 60 * 24 => 1000 * 60 * 60 / 24
+AORB_38:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 * 60 * 24 => 1000 * 60 * 60 % 24
+AORB_39:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 * 60 * 24 => 1000 * 60 * 60 + 24
+AORB_40:28:double_calculateFare(double,double,boolean,long,int):1000 * 60 * 60 * 24 => 1000 * 60 * 60 - 24
+AORB_41:29:double_calculateFare(double,double,boolean,long,int):departureTime - now => departureTime * now
+AORB_42:29:double_calculateFare(double,double,boolean,long,int):departureTime - now => departureTime / now
+AORB_43:29:double_calculateFare(double,double,boolean,long,int):departureTime - now => departureTime % now
+AORB_44:29:double_calculateFare(double,double,boolean,long,int):departureTime - now => departureTime + now
+AORB_45:29:double_calculateFare(double,double,boolean,long,int):(departureTime - now) / millisecondsPerDay => (departureTime - now) * millisecondsPerDay
+AORB_46:29:double_calculateFare(double,double,boolean,long,int):(departureTime - now) / millisecondsPerDay => (departureTime - now) % millisecondsPerDay
+AORB_47:29:double_calculateFare(double,double,boolean,long,int):(departureTime - now) / millisecondsPerDay => departureTime - now + millisecondsPerDay
+AORB_48:29:double_calculateFare(double,double,boolean,long,int):(departureTime - now) / millisecondsPerDay => departureTime - now - millisecondsPerDay
+AORB_49:31:double_calculateFare(double,double,boolean,long,int):price * 0.8 => price / 0.8
+AORB_50:31:double_calculateFare(double,double,boolean,long,int):price * 0.8 => price % 0.8
+AORB_51:31:double_calculateFare(double,double,boolean,long,int):price * 0.8 => price + 0.8
+AORB_52:31:double_calculateFare(double,double,boolean,long,int):price * 0.8 => price - 0.8
+AORB_53:34:double_calculateFare(double,double,boolean,long,int):7 - daysFromNow => 7 * daysFromNow
+AORB_54:34:double_calculateFare(double,double,boolean,long,int):7 - daysFromNow => 7 / daysFromNow
+AORB_55:34:double_calculateFare(double,double,boolean,long,int):7 - daysFromNow => 7 % daysFromNow
+AORB_56:34:double_calculateFare(double,double,boolean,long,int):7 - daysFromNow => 7 + daysFromNow
+AORB_57:34:double_calculateFare(double,double,boolean,long,int):100.0 * (7 - daysFromNow) => 100.0 / (7 - daysFromNow)
+AORB_58:34:double_calculateFare(double,double,boolean,long,int):100.0 * (7 - daysFromNow) => 100.0 % (7 - daysFromNow)
+AORB_59:34:double_calculateFare(double,double,boolean,long,int):100.0 * (7 - daysFromNow) => 100.0 + (7 - daysFromNow)
+AORB_60:34:double_calculateFare(double,double,boolean,long,int):100.0 * (7 - daysFromNow) => 100.0 - (7 - daysFromNow)
+AORB_61:37:double_calculateFare(double,double,boolean,long,int):3 - daysFromNow => 3 * daysFromNow
+AORB_62:37:double_calculateFare(double,double,boolean,long,int):3 - daysFromNow => 3 / daysFromNow
+AORB_63:37:double_calculateFare(double,double,boolean,long,int):3 - daysFromNow => 3 % daysFromNow
+AORB_64:37:double_calculateFare(double,double,boolean,long,int):3 - daysFromNow => 3 + daysFromNow
+AORB_65:37:double_calculateFare(double,double,boolean,long,int):100.0 * (3 - daysFromNow) => 100.0 / (3 - daysFromNow)
+AORB_66:37:double_calculateFare(double,double,boolean,long,int):100.0 * (3 - daysFromNow) => 100.0 % (3 - daysFromNow)
+AORB_67:37:double_calculateFare(double,double,boolean,long,int):100.0 * (3 - daysFromNow) => 100.0 + (3 - daysFromNow)
+AORB_68:37:double_calculateFare(double,double,boolean,long,int):100.0 * (3 - daysFromNow) => 100.0 - (3 - daysFromNow)
+AODU_1:10:double_calculateFare(double,double,boolean,long,int):-1 => 1
+AODU_2:42:double_calculateFare(double,double,boolean,long,int):-1 => 1
+AOIU_1:14:double_calculateFare(double,double,boolean,long,int):price1 => -price1
+AOIU_2:14:double_calculateFare(double,double,boolean,long,int):price2 => -price2
+AOIU_3:15:double_calculateFare(double,double,boolean,long,int):price1 => -price1
+AOIU_4:15:double_calculateFare(double,double,boolean,long,int):price2 => -price2
+AOIU_5:17:double_calculateFare(double,double,boolean,long,int):max => -max
+AOIU_6:19:double_calculateFare(double,double,boolean,long,int):max => -max
+AOIU_7:22:double_calculateFare(double,double,boolean,long,int):price1 => -price1
+AOIU_8:24:double_calculateFare(double,double,boolean,long,int):price => -price
+AOIU_9:29:double_calculateFare(double,double,boolean,long,int):departureTime => -departureTime
+AOIU_10:29:double_calculateFare(double,double,boolean,long,int):millisecondsPerDay => -millisecondsPerDay
+AOIU_11:31:double_calculateFare(double,double,boolean,long,int):price => -price
+AOIU_12:44:double_calculateFare(double,double,boolean,long,int):price => -price
+ROR_1:13:double_calculateFare(double,double,boolean,long,int): price1 != 0  =>   price1 > 0
+ROR_2:13:double_calculateFare(double,double,boolean,long,int): price1 != 0  =>   price1 >= 0
+ROR_3:13:double_calculateFare(double,double,boolean,long,int): price1 != 0  =>   price1 < 0
+ROR_4:13:double_calculateFare(double,double,boolean,long,int): price1 != 0  =>   price1 <= 0
+ROR_5:13:double_calculateFare(double,double,boolean,long,int): price1 != 0  =>   price1 == 0
+ROR_6:13:double_calculateFare(double,double,boolean,long,int): price1 != 0  =>   true
+ROR_7:13:double_calculateFare(double,double,boolean,long,int): price1 != 0  =>   false
+ROR_8:13:double_calculateFare(double,double,boolean,long,int): price2 != 0  =>   price2 > 0
+ROR_9:13:double_calculateFare(double,double,boolean,long,int): price2 != 0  =>   price2 >= 0
+ROR_10:13:double_calculateFare(double,double,boolean,long,int): price2 != 0  =>   price2 < 0
+ROR_11:13:double_calculateFare(double,double,boolean,long,int): price2 != 0  =>   price2 <= 0
+ROR_12:13:double_calculateFare(double,double,boolean,long,int): price2 != 0  =>   price2 == 0
+ROR_13:13:double_calculateFare(double,double,boolean,long,int): price2 != 0  =>   true
+ROR_14:13:double_calculateFare(double,double,boolean,long,int): price2 != 0  =>   false
+ROR_15:16:double_calculateFare(double,double,boolean,long,int): max - min > 500  =>   max - min >= 500
+ROR_16:16:double_calculateFare(double,double,boolean,long,int): max - min > 500  =>   max - min < 500
+ROR_17:16:double_calculateFare(double,double,boolean,long,int): max - min > 500  =>   max - min <= 500
+ROR_18:16:double_calculateFare(double,double,boolean,long,int): max - min > 500  =>   max - min == 500
+ROR_19:16:double_calculateFare(double,double,boolean,long,int): max - min > 500  =>   max - min != 500
+ROR_20:16:double_calculateFare(double,double,boolean,long,int): max - min > 500  =>   true
+ROR_21:16:double_calculateFare(double,double,boolean,long,int): max - min > 500  =>   false
+ROR_22:23:double_calculateFare(double,double,boolean,long,int): duration > 8  =>   duration >= 8
+ROR_23:23:double_calculateFare(double,double,boolean,long,int): duration > 8  =>   duration < 8
+ROR_24:23:double_calculateFare(double,double,boolean,long,int): duration > 8  =>   duration <= 8
+ROR_25:23:double_calculateFare(double,double,boolean,long,int): duration > 8  =>   duration == 8
+ROR_26:23:double_calculateFare(double,double,boolean,long,int): duration > 8  =>   duration != 8
+ROR_27:23:double_calculateFare(double,double,boolean,long,int): duration > 8  =>   true
+ROR_28:23:double_calculateFare(double,double,boolean,long,int): duration > 8  =>   false
+ROR_29:30:double_calculateFare(double,double,boolean,long,int): daysFromNow > 14  =>   daysFromNow >= 14
+ROR_30:30:double_calculateFare(double,double,boolean,long,int): daysFromNow > 14  =>   daysFromNow < 14
+ROR_31:30:double_calculateFare(double,double,boolean,long,int): daysFromNow > 14  =>   daysFromNow <= 14
+ROR_32:30:double_calculateFare(double,double,boolean,long,int): daysFromNow > 14  =>   daysFromNow == 14
+ROR_33:30:double_calculateFare(double,double,boolean,long,int): daysFromNow > 14  =>   daysFromNow != 14
+ROR_34:30:double_calculateFare(double,double,boolean,long,int): daysFromNow > 14  =>   true
+ROR_35:30:double_calculateFare(double,double,boolean,long,int): daysFromNow > 14  =>   false
+ROR_36:41:double_calculateFare(double,double,boolean,long,int): price == Double.POSITIVE_INFINITY  =>   price > Double.POSITIVE_INFINITY
+ROR_37:41:double_calculateFare(double,double,boolean,long,int): price == Double.POSITIVE_INFINITY  =>   price >= Double.POSITIVE_INFINITY
+ROR_38:41:double_calculateFare(double,double,boolean,long,int): price == Double.POSITIVE_INFINITY  =>   price < Double.POSITIVE_INFINITY
+ROR_39:41:double_calculateFare(double,double,boolean,long,int): price == Double.POSITIVE_INFINITY  =>   price <= Double.POSITIVE_INFINITY
+ROR_40:41:double_calculateFare(double,double,boolean,long,int): price == Double.POSITIVE_INFINITY  =>   price != Double.POSITIVE_INFINITY
+ROR_41:41:double_calculateFare(double,double,boolean,long,int): price == Double.POSITIVE_INFINITY  =>   true
+ROR_42:41:double_calculateFare(double,double,boolean,long,int): price == Double.POSITIVE_INFINITY  =>   false
+COR_1:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0  =>   price1 < 0 && price2 < 0
+COR_2:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0  =>   price1 < 0 ^ price2 < 0
+COR_3:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis()  =>   (price1 < 0 || price2 < 0) && departureTime < System.currentTimeMillis()
+COR_4:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis()  =>   (price1 < 0 || price2 < 0) ^ departureTime < System.currentTimeMillis()
+COR_5:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis() || duration < 0  =>   (price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis()) && duration < 0
+COR_6:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis() || duration < 0  =>   (price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis()) ^ duration < 0
+COR_7:13:double_calculateFare(double,double,boolean,long,int): price1 != 0 && price2 != 0  =>   price1 != 0 || price2 != 0
+COR_8:13:double_calculateFare(double,double,boolean,long,int): price1 != 0 && price2 != 0  =>   price1 != 0 ^ price2 != 0
+COR_9:33:double_calculateFare(double,double,boolean,long,int): daysFromNow < 7 && !isFreqFlier  =>   daysFromNow < 7 || !isFreqFlier
+COR_10:33:double_calculateFare(double,double,boolean,long,int): daysFromNow < 7 && !isFreqFlier  =>   daysFromNow < 7 ^ !isFreqFlier
+COR_11:36:double_calculateFare(double,double,boolean,long,int): daysFromNow < 3 && isFreqFlier  =>   daysFromNow < 3 || isFreqFlier
+COR_12:36:double_calculateFare(double,double,boolean,long,int): daysFromNow < 3 && isFreqFlier  =>   daysFromNow < 3 ^ isFreqFlier
+COD_1:33:double_calculateFare(double,double,boolean,long,int):!isFreqFlier => isFreqFlier
+COI_1:9:double_calculateFare(double,double,boolean,long,int): price1 < 0  =>  !(price1 < 0)
+COI_2:9:double_calculateFare(double,double,boolean,long,int): price2 < 0  =>  !(price2 < 0)
+COI_3:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0  =>  !(price1 < 0 || price2 < 0)
+COI_4:9:double_calculateFare(double,double,boolean,long,int): departureTime < System.currentTimeMillis()  =>  !(departureTime < System.currentTimeMillis())
+COI_5:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis()  =>  !(price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis())
+COI_6:9:double_calculateFare(double,double,boolean,long,int): duration < 0  =>  !(duration < 0)
+COI_7:9:double_calculateFare(double,double,boolean,long,int): price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis() || duration < 0  =>  !(price1 < 0 || price2 < 0 || departureTime < System.currentTimeMillis() || duration < 0)
+COI_8:13:double_calculateFare(double,double,boolean,long,int): price1 != 0  =>  !(price1 != 0)
+COI_9:13:double_calculateFare(double,double,boolean,long,int): price2 != 0  =>  !(price2 != 0)
+COI_10:13:double_calculateFare(double,double,boolean,long,int): price1 != 0 && price2 != 0  =>  !(price1 != 0 && price2 != 0)
+COI_11:16:double_calculateFare(double,double,boolean,long,int): max - min > 500  =>  !(max - min > 500)
+COI_12:23:double_calculateFare(double,double,boolean,long,int): duration > 8  =>  !(duration > 8)
+COI_13:30:double_calculateFare(double,double,boolean,long,int): daysFromNow > 14  =>  !(daysFromNow > 14)
+COI_14:33:double_calculateFare(double,double,boolean,long,int): daysFromNow < 7  =>  !(daysFromNow < 7)
+COI_15:33:double_calculateFare(double,double,boolean,long,int): daysFromNow < 7 && !isFreqFlier  =>  !(daysFromNow < 7 && !isFreqFlier)
+COI_16:36:double_calculateFare(double,double,boolean,long,int): daysFromNow < 3  =>  !(daysFromNow < 3)
+COI_17:36:double_calculateFare(double,double,boolean,long,int): isFreqFlier  =>  !isFreqFlier
+COI_18:36:double_calculateFare(double,double,boolean,long,int): daysFromNow < 3 && isFreqFlier  =>  !(daysFromNow < 3 && isFreqFlier)
+COI_19:41:double_calculateFare(double,double,boolean,long,int): price == Double.POSITIVE_INFINITY  =>  !(price == Double.POSITIVE_INFINITY)
+ASRS_1:34:double_calculateFare(double,double,boolean,long,int):price += 100.0 * (7 - daysFromNow) => price /= 100.0 * (7 - daysFromNow)
+ASRS_2:34:double_calculateFare(double,double,boolean,long,int):price += 100.0 * (7 - daysFromNow) => price *= 100.0 * (7 - daysFromNow)
+ASRS_3:34:double_calculateFare(double,double,boolean,long,int):price += 100.0 * (7 - daysFromNow) => price -= 100.0 * (7 - daysFromNow)
+ASRS_4:34:double_calculateFare(double,double,boolean,long,int):price += 100.0 * (7 - daysFromNow) => price %= 100.0 * (7 - daysFromNow)
+ASRS_5:37:double_calculateFare(double,double,boolean,long,int):price += 100.0 * (3 - daysFromNow) => price /= 100.0 * (3 - daysFromNow)
+ASRS_6:37:double_calculateFare(double,double,boolean,long,int):price += 100.0 * (3 - daysFromNow) => price *= 100.0 * (3 - daysFromNow)
+ASRS_7:37:double_calculateFare(double,double,boolean,long,int):price += 100.0 * (3 - daysFromNow) => price -= 100.0 * (3 - daysFromNow)
+ASRS_8:37:double_calculateFare(double,double,boolean,long,int):price += 100.0 * (3 - daysFromNow) => price %= 100.0 * (3 - daysFromNow)

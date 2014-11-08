@@ -391,4 +391,19 @@ public class FareCalculatorTest {
 		assertEquals("Test failed for one segment only (price1), duration more than 8.", expected, actual, delta);
 	}
 	
+	// to kill mutant ROR_29
+	@Test
+	public void testTwoSegmentsDepartureEqualsTo14DaysFromNow() {
+		price1 = 300;
+		price2 = 200;
+		departureTime = System.currentTimeMillis() + ONE_DAY * 14;
+		
+		// 10% discount on price1, then 20% discount 
+		double expected = (0.9*price1+price2);
+
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		
+		assertEquals("Test failed for two segments, departure more than 14 days from now.", expected, actual, delta);
+	}
+	
 }

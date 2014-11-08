@@ -242,4 +242,23 @@ public class FareCalculatorTest {
 	/***********************************************************************************************************/
 	/*********************************below are added tests*****************************************************/
 	/***********************************************************************************************************/
+	
+	// to kill AOIU_4 
+	@Test
+	public void testTwoSegmentsDiffMoreThan500SecondLarger() {
+		price1 = 200;
+		price2 = 900;
+		// if 9 days from now, there should be no further adjustments
+		departureTime = System.currentTimeMillis() + ONE_DAY * 9;
+		
+		// more expensive reduced by 15%
+		double expected = price1 + 0.85*price2;
+
+		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
+		
+		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
+	}
+	
+	
+	
 }

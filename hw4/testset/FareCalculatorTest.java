@@ -256,7 +256,7 @@ public class FareCalculatorTest {
 
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		
-		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
+		assertEquals("Test failed for two segments more than 500, price2 larger.", expected, actual, delta);
 	}
 	
 	// to kill AORB_4 
@@ -272,7 +272,7 @@ public class FareCalculatorTest {
 
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		
-		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
+		assertEquals("Test failed for two segments sum more than 500.", expected, actual, delta);
 	}
 	
 	//to kill mutant AORB_43
@@ -329,7 +329,7 @@ public class FareCalculatorTest {
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		double expected = -1;
 		
-		assertEquals("Test failed for invalid price1.", expected, actual, delta);
+		assertEquals("Test failed for invalid price1 and price2.", expected, actual, delta);
 		
 	}
 	
@@ -343,7 +343,7 @@ public class FareCalculatorTest {
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		double expected = -1;
 		
-		assertEquals("Test failed for invalid price1.", expected, actual, delta);
+		assertEquals("Test failed for invalid price1 and departureTime.", expected, actual, delta);
 		
 	}
 	
@@ -356,7 +356,7 @@ public class FareCalculatorTest {
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		double expected = -1;
 		
-		assertEquals("Test failed for invalid price1.", expected, actual, delta);
+		assertEquals("Test failed for invalid price1 and duration.", expected, actual, delta);
 		
 	}
 	
@@ -373,7 +373,7 @@ public class FareCalculatorTest {
 
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		
-		assertEquals("Test failed for two segments more less than 500.", expected, actual, delta);
+		assertEquals("Test failed for two segments eauals to 500.", expected, actual, delta);
 	}
 	
 	// to kill mutant ROR_22
@@ -388,7 +388,7 @@ public class FareCalculatorTest {
 
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		
-		assertEquals("Test failed for one segment only (price1), duration more than 8.", expected, actual, delta);
+		assertEquals("Test failed for one segment only (price1), duration equals to 8.", expected, actual, delta);
 	}
 	
 	// to kill mutant ROR_29
@@ -403,7 +403,7 @@ public class FareCalculatorTest {
 
 		double actual = fc.calculateFare(price1, price2, isFreqFlier, departureTime, duration);
 		
-		assertEquals("Test failed for two segments, departure more than 14 days from now.", expected, actual, delta);
+		assertEquals("Test failed for two segments, departure equals to 14 days from now.", expected, actual, delta);
 	}
 	
 }

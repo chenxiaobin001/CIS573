@@ -56,6 +56,14 @@ public class FlightSimulatorTest {
 	}
 	
 	@Test
+	public void testInvalidStepsAndSafeDistance() {
+		thrown.expect( IllegalArgumentException.class );
+		steps = 0;
+		safeDistance = -1;
+		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
+	}
+	
+	@Test
 	public void testInvalidSafeDistance() {
 		thrown.expect( IllegalArgumentException.class );
 		safeDistance = -2;
@@ -78,7 +86,7 @@ public class FlightSimulatorTest {
 	
 	@Test
 	public void testViolateSafeDistance() {
-		planes[3] = new Airplane(0, 10, 2, 2);
+		planes[3] = new Airplane(0, 10, 90, 2);
 		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
 		boolean expected = false;
 		assertEquals("Test failed for Violating SafeDistance.", expected, actual);
@@ -93,12 +101,81 @@ public class FlightSimulatorTest {
 	}
 	
 	@Test
-	public void testSafeDistanceInTwoSteps() {
+	public void testViolateSafeDistanceInTwoSteps() {
 		steps = 2;
 		planes[0] = new Airplane(2, 2, 180, 1);
 		planes[1] = new Airplane(-2, 2, 0, 1);
 		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
 		boolean expected = false;
+		assertEquals("Test failed for invalid plane.", expected, actual);
+	}
+	
+	@Test
+	public void testSafeDistanceInTwoSteps() {
+		steps = 2;
+		planes[0] = new Airplane(-1, -1, 60, 1);
+		planes[1] = new Airplane(1, 1, -60, 1);
+		planes[2] = new Airplane(0, 100, 90, 10);
+		planes[3] = new Airplane(100, 0, 0, 10);
+		safeDistance = 1;
+		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
+		boolean expected = true;
+		assertEquals("Test failed for invalid plane.", expected, actual);
+	}
+	
+	@Test
+	public void testViolateSafeDistanceInTwoStepsV1() {
+		steps = 2;
+		planes[0] = new Airplane(1, 2, 0, 1);
+		planes[1] = new Airplane(-1, 2, 180, 2);
+		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
+		boolean expected = true;
+		assertEquals("Test failed for invalid plane.", expected, actual);
+	}
+	
+	@Test
+	public void testViolateSafeDistanceInTwoStepsV2() {
+		steps = 2;
+		planes[0] = new Airplane(1, -1, 270, 1);
+		planes[1] = new Airplane(1, 1, 90, 2);
+		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
+		boolean expected = true;
+		assertEquals("Test failed for invalid plane.", expected, actual);
+	}
+	
+	@Test
+	public void testViolateSafeDistanceInTwoStepsV3() {
+		steps = 2;
+		safeDistance = 1;
+		planes[0] = new Airplane(-1, 0, 0, 1);
+		planes[1] = new Airplane(0, 1, 90, 1);
+		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
+		boolean expected = true;
+		assertEquals("Test failed for invalid plane.", expected, actual);
+	}
+	
+	@Test
+	public void testViolateSafeDistanceInTwoStepsV4() {
+		steps = 2;
+		safeDistance = 1;
+		planes[0] = new Airplane(0, 1, 0, 0);
+		planes[1] = new Airplane(0, 0, 1.57, 1);
+		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
+		boolean expected = true;
+		assertEquals("Test failed for invalid plane.", expected, actual);
+	}
+	
+	
+	@Test
+	public void testSafeDistanceInThreeSteps() {
+		steps = 3;
+		planes[0] = new Airplane(2, 0, 0, 0);
+		planes[1] = new Airplane(-2, 0, 0, 1);
+		planes[2] = new Airplane(0, 100, 90, 10);
+		planes[3] = new Airplane(100, 0, 0, 10);
+		safeDistance = 1;
+		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
+		boolean expected = true;
 		assertEquals("Test failed for invalid plane.", expected, actual);
 	}
 	

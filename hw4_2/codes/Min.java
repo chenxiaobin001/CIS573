@@ -12,8 +12,11 @@ public class Min {
 	int r = 0;
 	if (a < b) {
 	    if (a < c) {
-		if (c < d) r = a;
-		else r = d;
+			if (c < d) r = a;
+			else {
+				if (a < d) r = a;		//comparison between a and d
+				else r = d;
+			}
 	    }
 	    else {
 		if (c < d) r = c;
@@ -21,7 +24,7 @@ public class Min {
 	    }
 	}
 	else if (b < c) {
-	    if (c < d) r = c; 
+	    if (c < d) r = b; 				// change from c to b
 	    else if (b < d) r = b;
 	    else r = d;
 	}

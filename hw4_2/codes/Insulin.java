@@ -7,7 +7,60 @@ public class Insulin {
     public static int calculate(int current, int previous, int amount) {
 
 	/* IMPLEMENT THIS METHOD! */
-
+		int result = 0;
+		int decrease = previous - current;
+		// verify the inputs
+		if (amount < 0 || amount > 12 || current < 50 || current > 250 || previous < 50 || previous > 250) return -1;
+		
+		if (current < 75)	result = 0;
+		else if (current <= 89){
+			if (decrease < 20){
+				if (amount > 3){
+					result = amount - 2;
+				}else{
+					result = amount - 1;
+				}
+			}else{
+				result = 0;
+			}
+		}else if (current <= 130){
+			if (decrease < 20){
+				if (amount > 3){
+					result = amount - 1;
+				}else{
+					result = amount;
+				}
+			}else{
+				result = 0;
+			}
+		}else if (current <= 160){
+			if (decrease < 20){
+				result = amount + 2;
+			}else{
+				if (amount > 8){
+					result = amount;
+				}else{
+					result = amount + 1;
+				}
+			}
+		}else{
+			if (decrease < 20){
+				if (amount < 6){
+					result = amount + 4;
+				}else if (amount < 9){
+					result = amount + 3;
+				}else{
+					result = amount + 2;
+				}
+			}else{
+				if (amount <= 10){
+					result = amount + 2;
+				}else{
+					result = amount + 1;
+				}
+			}			
+	
+		}
     }
 
 

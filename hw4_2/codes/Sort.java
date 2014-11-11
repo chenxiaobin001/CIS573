@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Iterator;
-
 public class Sort {
 
     public static void main(String[] args) {
@@ -32,8 +29,8 @@ public class Sort {
 
 	// bubble sort!
 	for (int i = 0; i < R.length; i++) {
-	    for (int j = i; j < R.length-1; j++) {
-		if (R[j] < R[j+1]) { 
+	    for (int j = 0; j < R.length-1-i; j++) {
+		if (R[j] > R[j+1]) { 
 		    int temp = R[j];
 		    R[j] = R[j+1];
 		    R[j+1] = temp;
@@ -43,14 +40,7 @@ public class Sort {
 
 	// TODO: write your assertions here!
 	
-	// all positive elements are in the return array.
-	HashMap<Integer, Integer> originalArr = getPositiveElementCount(A);
-	HashMap<Integer, Integer> newArr = getPositiveElementCount(R);
-	assert(originalArr.size() == newArr.size());	//two array have the same number of positive numbers
-	for (int i : newArr.keySet()){
-		assert(originalArr.get(i) != null);		//this positive number is in original array
-		assert(originalArr.get(i) == newArr.get(i));	//the count of positive number is the same	
-	}
+	
 	
 	// all elements in return array are positive
 	for (int i = 0; i < R.length; i++){
@@ -61,23 +51,38 @@ public class Sort {
 	for (int i = 1; i <R.length; i++){
 		assert (R[i] >= R[i - 1]);
 	}
-
+	
+	// all positive elements are in the return array R[].
+	int[] original = copyArray(A);
+	int index = 0;
+	for (int i = 0; i < R.length; i++){
+		for (index = 0; index < original.length; index++){
+			if (original[index] == R[i]){
+				original[index] = -1;		//find corresponding num in A[] and remove it
+				break;
+			}
+		}
+		assert(index != original.length);		//every positive num in R[] has corresponding positive num in A[]
+	}
+	for (int i = 0; i < original.length; i++){
+		assert (original[i] <= 0);			//not positive num left in A[]
+	}
+	
 	return R;
 
     }
 	
-	private static HashMap<Integer, Integer> getPositiveElementCount(int[] arr){
-		HashMap<Integer, Integer> result = new HashMap<Integer, Integer>();
-		for (int i = 0; i < arr.length; i++){
-			if (arr[i] > 0){
-				if (result.get(arr[i]) == null){
-					result.put(arr[i], 1);
-				}else{
-					result.put(arr[i], result.get(arr[i]) + 1);
-				}
-			}
-		}
-		return result;
-	}
-
+	
+	private static int[] copyArray(int[] arr){	//copy an array
+    	if (arr == null)	return null;
+    	int size = arr.length;
+    	int[] result = new int[size];
+    	for (int i = 0; i < size; i++){
+    		result[i] = arr[i];
+    	}
+    	return result;
+    }
 }
+
+
+

@@ -44,7 +44,7 @@ public class SubsetSum {
 	    if (sum == target) {
 		comb = c;
 		soln = new boolean[A.length];
-		for (int i = A.length-1; i > 0; i--) {
+		for (int i = A.length-1; i >= 0; i--) {
 		    if (comb % 2 == 1) 
 			soln[i] = true;
 		    else soln[i] = false;
@@ -55,6 +55,21 @@ public class SubsetSum {
 	}
 
 	// TODO: write your assertions here!
+	// all the indicated return values add up to target value
+	int mSum = 0;
+	boolean atLeastOne = false;		//to prevent the case that no value selected and target == 0
+	for (int i = 0; i < A.length; i++){
+		if (soln == null)	break;
+		if (soln[i]){
+			if (!atLeastOne){		//first return value
+				mSum = A[i];
+				atLeastOne = true;
+			}else{
+				mSum += A[i];
+			}
+		}
+	}
+	assert(!atLeastOne || atLeastOne && mSum == target);	
 
 	return soln;
 

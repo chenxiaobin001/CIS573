@@ -179,4 +179,14 @@ public class FlightSimulatorTest {
 		assertEquals("Test failed for invalid plane.", expected, actual);
 	}
 	
+	@Test(timeout=1000)
+	public void testTimeout1() {
+		steps = 3;
+		planes = new Airplane[0];
+		safeDistance = 1;
+		boolean actual = FlightSimulator.simulateFlights(planes, steps, safeDistance);
+		boolean expected = true;
+		assertEquals("Test failed for invalid plane.", expected, actual);
+	}
+	
 }

@@ -1,7 +1,8 @@
 public class Insulin {
 
     public static void main(String[] args) {
-        calculate(0,0,0);
+		calculate(0,0,0);
+        administer(0,0,0);
     }
 
     public static int calculate(int current, int previous, int amount) {
@@ -91,7 +92,7 @@ public class Insulin {
 	if (newLevel == -1) return -1;
 
 	/* VERIFY THIS! */
-	assert current - newLevel <= 10; 
+	assert current - newLevel <= 48; 
 
 	return 0;
     }

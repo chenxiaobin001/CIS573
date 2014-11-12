@@ -38,7 +38,11 @@ public class Insulin {
 			}
 		}else if (current <= 160){
 			if (decrease < 20){
-				result = amount + 2;
+				if (amount <= 10){
+					result = amount + 2;
+				}else{
+					result = 12;
+				}
 			}else{
 				if (amount > 8){
 					result = amount;
@@ -53,13 +57,17 @@ public class Insulin {
 				}else if (amount < 9){
 					result = amount + 3;
 				}else{
-					result = amount + 2;
+					if (amount <= 10){
+						result = amount + 2;
+					}else{
+						result = 12;
+					}
 				}
 			}else{
 				if (amount <= 10){
 					result = amount + 2;
 				}else{
-					result = amount + 1;
+					result = 12;
 				}
 			}			
 		

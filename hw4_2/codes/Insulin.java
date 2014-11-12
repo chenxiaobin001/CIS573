@@ -10,15 +10,18 @@ public class Insulin {
 		int result = 0;
 		int decrease = previous - current;
 		// verify the inputs
-		if (amount < 0 || amount > 12 || current < 50 || current > 250 || previous < 50 || previous > 250) return -1;
-		
+		if (amount < 0 || amount > 12 || current < 50 || current > 250 || previous < 50 || previous > 250){
+			return -1;
+		}
 		if (current < 75)	result = 0;
 		else if (current <= 89){
 			if (decrease < 20){
 				if (amount > 3){
 					result = amount - 2;
-				}else{
+				}else if (amount >= 1){
 					result = amount - 1;
+				}else{
+					result = 0;
 				}
 			}else{
 				result = 0;
@@ -59,8 +62,11 @@ public class Insulin {
 					result = amount + 1;
 				}
 			}			
-	
+		
 		}
+		/* VERIFY THIS! */
+		assert(result <= 12 && result >= 0);
+		return result;
     }
 
 

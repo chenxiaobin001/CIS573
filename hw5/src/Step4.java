@@ -21,7 +21,8 @@ public class Step4 {
 			Random rand = new Random();
 			int target = rand.nextInt(targetRange) + 1;
 			
-			if (solveSubsetSum(arr, target)){
+			boolean[] result = solveSubsetSum(arr, target);
+			if (testSubsetSumResult(result, arr, target)){
 				count++;
 			}
 		}
@@ -43,17 +44,13 @@ public class Step4 {
 		return arr;
 	}
 	
-	private static boolean solveSubsetSum(int[] arr, int target){
+	public static boolean[] solveSubsetSum(int[] arr, int target){
 		boolean[] result = SubsetSumDP.solve(arr, target);
 		if (testSubsetSumResult(result, arr, target)){
-			return true;
+			return result;
 		}else{
 			result = SubsetSum.solve(arr, target);
-			if (testSubsetSumResult(result, arr, target)){
-				return true;
-			}else{
-				return false;
-			}
+			return result;
 		}
 	}
 	

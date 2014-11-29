@@ -38,7 +38,7 @@ public class Step1 {
 		}
 		long end = System.currentTimeMillis();
 		System.out.println("percentage: " + ((double)count)/loopTimes*100 + "%");
-		System.out.println("Execution Time: " + (end - start)/1000.0 + "s");
+		System.out.println("Execution Time: " + (end - start)/10000.0 + "ms");
 		
 	}
 	

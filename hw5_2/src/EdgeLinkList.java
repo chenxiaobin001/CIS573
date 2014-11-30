@@ -1,44 +1,38 @@
-import java.util.HashMap;
-
 public class EdgeLinkList
 {
 	private EdgeLink first;            // ref to first link on list
 	private int numLinks;		// tracks the number of links in the linked list
-	private HashMap<Integer, EdgeLink> vertexToEdgeLink;		//maps from vertex label to EdgeLink
 
 	// -------------------------------------------------------------
 	public EdgeLinkList()              // constructor
 	{
 		first = null;               // no links on list yet
 		numLinks = 0;
-		vertexToEdgeLink = new HashMap<Integer, EdgeLink>();
 	}
 	// -------------------------------------------------------------
-	public void insertFirst(String id, int index, double w)
+	public void insertFirst(String id, double w)
 	{                           // make new link and make it point to
 		// the old first
-		EdgeLink newLink = new EdgeLink(id, index, w, first);
+		EdgeLink newLink = new EdgeLink(id, w, first);
 		first = newLink;            // now first points to this
-		vertexToEdgeLink.put(index, newLink);
 		numLinks++;
 	}
 	// -------------------------------------------------------------
-	public EdgeLink find(int key)      // find link with given key
+	public EdgeLink find(String key)      // find link with given key
 	{                          
 		// if empty linked list, then return null
 		if(first == null)
 			return null;
 
 		// otherwise scan list until a node with key is found
-		/*EdgeLink current = first;              // start at 'first'
+		EdgeLink current = first;              // start at 'first'
 		while(!(current.sData).equals(key))        // while no match,
 		{
 			if(current.next == null)        // if end of list,
 				return null;                 // didn't find it
 			else                            // not end of list,
 				current = current.next;      // go to next link
-		}*/
-		EdgeLink current = vertexToEdgeLink.get(key);
+		}
 		return current;                    // found it
 	}
 	// -------------------------------------------------------------
@@ -82,10 +76,10 @@ public class EdgeLinkList
 	}
 
 	// Appends the given element to the end of this list.
-	void addLast(String x, int index, double w)
+	void addLast(String x, double w)
 	{
 		// Make a new node containing x
-		EdgeLink newNode = new EdgeLink(x, index, w, null);
+		EdgeLink newNode = new EdgeLink(x, w, null);
 
 		// If list is empty, then make first point to the new node
 		if(first == null)
@@ -178,7 +172,7 @@ public class EdgeLinkList
 
 		// Scan this list from front to back
 		while(current != null){
-			temp.insertFirst(current.sData, current.iData, current.weight);
+			temp.insertFirst(current.sData, current.weight);
 			current = current.next;
 		}
 

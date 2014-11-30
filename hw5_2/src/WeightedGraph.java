@@ -174,10 +174,7 @@ public class WeightedGraph
 		double diffY = y1 - y2;
 		double dist = Math.sqrt(diffX*diffX + diffY*diffY);
 	//	addEdge(vertex1, vertex2, dist);
-	//	addEdge(i, j, dist);
-		Edges[i].insertFirst(idxToNames[j], j, dist);
-    	Edges[j].insertFirst(idxToNames[i], i, dist);
-    	numEdges++;
+		addEdge(i, j, dist);
 	}
 
 	// Adds a new edge with weight w. The edge is specified by
@@ -200,8 +197,8 @@ public class WeightedGraph
 			return;
 		}
 		
-		Edges[i].insertFirst(idxToNames[j], j, w);
-    	Edges[j].insertFirst(idxToNames[i], i, w);
+		Edges[i].insertFirst(idxToNames[j], w);
+    	Edges[j].insertFirst(idxToNames[i], w);
 	//	Edges[i].insertFirst(names[j], w);
 	//	Edges[j].insertFirst(names[i], w);
 		
@@ -302,7 +299,7 @@ public class WeightedGraph
 
 		// Look for vertex j in Edges[i]
 	//	EdgeLink e = Edges[i].find(names[j]);
-		EdgeLink e = Edges[i].find(j);
+		EdgeLink e = Edges[i].find(idxToNames[j]);
 
 		// If vertex j is found in Edges[i] then return the weight of
 		// the edge, otherwise return null

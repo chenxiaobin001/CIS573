@@ -47,6 +47,7 @@ public class Step6 {
 			//second time
 			//just shuffle the index array, not the original array!
 			myShuffle(index);
+			//copy an array with new index order
 			int[] arr1 = copyArray(arr, index);
 			result = SubsetSumDP.solve(arr1, target);
 			if (testSubsetSumResult(result, arr1, target)){
@@ -104,7 +105,6 @@ public class Step6 {
 	private static boolean testSubsetSumResult(boolean[] result, int[] arr, int target){
 		
 		if (result == null)	return true;
-
 		int sum = 0;
 		for (int i = 0; i < result.length; i++){
 			if (result[i]){

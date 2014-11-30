@@ -173,7 +173,8 @@ public class WeightedGraph
 		double diffX = x1 - x2;
 		double diffY = y1 - y2;
 		double dist = Math.sqrt(diffX*diffX + diffY*diffY);
-		addEdge(vertex1, vertex2, dist);
+	//	addEdge(vertex1, vertex2, dist);
+		addEdge(i, j, dist);
 	}
 
 	// Adds a new edge with weight w. The edge is specified by
